@@ -4,13 +4,13 @@ const lista = document.getElementById("listaSelecoes");
 form.addEventListener("submit", function (evento) {
     evento.preventDefault(); //Evita recarregar a página
     //pega os valores dos campos do formulário
-    const nome = document.getElementById("nomeSelecoes").value;
-    const pais = document.getElementById("continente").value;
-    const anoFundacao = document.getElementById("numeroTitulos").value;
-    const tecnico = document.getElementById("jogadorDestaque").value;
+    const nomeSelecao = document.getElementById("nomeSelecao").value;
+    const continente = document.getElementById("continente").value;
+    const numeroTitulos = document.getElementById("numeroTitulos").value;
+    const jogadorDestaque = document.getElementById("jogadorDestaque").value;
     //criar um novo item na lista de seleções
     const novaSelecao = document.createElement("li");
-    novaSelecao.innerText = `${nomeSelecoes} -- (${continente}) -- Fundada em: ${numeroTitulos} -- Técnico: ${jogadorDestaque}`;
+    novaSelecao.innerText = `${nomeSelecao} -- (${continente}) -- ${numeroTitulos} -- ${jogadorDestaque}`;
     //adiciona a nova seleção na lista
     lista.appendChild(novaSelecao);
     //limpa os campos do formulário
