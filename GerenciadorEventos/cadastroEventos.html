@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Eventos</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'ocean-blue': '#006994',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-white min-h-screen p-8 font-sans">
+    <div class="max-w-2xl mx-auto">
+        <!-- Cabeçalho -->
+        <h1 class="text-3xl font-light text-gray-900 mb-8 border-b border-ocean-blue pb-2">
+            Cadastro de Eventos
+        </h1>
+        
+        <!-- Formulário -->
+        <form id="formEvento" class="space-y-6 mb-12">
+            <div>
+                <label for="nome" class="block text-sm font-medium text-gray-700 mb-1">Nome do Evento</label>
+                <input type="text" id="nome" name="nome" required
+                    class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-ocean-blue focus:border-ocean-blue">
+            </div>
+            
+            <div>
+                <label for="data" class="block text-sm font-medium text-gray-700 mb-1">Data do Evento</label>
+                <input type="date" id="data" name="data" required
+                    class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-ocean-blue focus:border-ocean-blue">
+            </div>
+            
+            <div>
+                <label for="local" class="block text-sm font-medium text-gray-700 mb-1">Local do Evento</label>
+                <input type="text" id="local" name="local" required
+                    class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-ocean-blue focus:border-ocean-blue">
+            </div>
+            
+            <div>
+                <label for="modalidade" class="block text-sm font-medium text-gray-700 mb-1">Modalidade do Evento</label>
+                <input type="text" id="modalidade" name="modalidade" required
+                    class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-ocean-blue focus:border-ocean-blue">
+            </div>
+            
+            <div>
+                <p class="block text-sm font-medium text-gray-700 mb-2">Evento Aberto ao Público?</p>
+                <div class="flex items-center space-x-4">
+                    <label class="inline-flex items-center">
+                        <input type="radio" id="sim" name="eventoAberto" value="sim" required
+                            class="text-ocean-blue focus:ring-ocean-blue">
+                        <span class="ml-2 text-gray-700">Sim</span>
+                    </label>
+                    <label class="inline-flex items-center">
+                        <input type="radio" id="nao" name="eventoAberto" value="nao" required
+                            class="text-ocean-blue focus:ring-ocean-blue">
+                        <span class="ml-2 text-gray-700">Não</span>
+                    </label>
+                </div>
+            </div>
+            
+            <button type="submit"
+                class="w-full bg-ocean-blue text-white py-2 px-4 rounded-md hover:bg-opacity-90 transition-opacity focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-ocean-blue">
+                Cadastrar Evento
+            </button>
+        </form>
+        
+        <!-- Lista de Eventos -->
+        <div>
+            <h3 class="text-xl font-light text-gray-900 mb-4 border-b border-ocean-blue pb-1">
+                Eventos Cadastrados
+            </h3>
+            <ul id="listaEventos" class="divide-y divide-gray-200">
+                <!-- Itens serão adicionados dinamicamente aqui -->
+            </ul>
+        </div>
+    </div>
+    
+    <script src="cadastroEventos.js"></script>
+</body>
+</html>

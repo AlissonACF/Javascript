@@ -4,36 +4,211 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro de Jogador da Seleção</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+        
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #0f0f13;
+            color: #e0e0e0;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #1a1a23;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        h1, h2 {
+            color: #f0f0f0;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 25px;
+            border-bottom: 2px solid #3a3a4a;
+            padding-bottom: 10px;
+        }
+        
+        h1 {
+            font-size: 28px;
+            color: #f77a05; /* Roxo similar ao da imagem */
+        }
+        
+        h2 {
+            font-size: 22px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: #c0c0c0;
+        }
+        
+        input[type="text"],
+        input[type="date"],
+        select {
+            width: 100%;
+            padding: 12px;
+            background-color: #2a2a35;
+            border: 1px solid #3a3a4a;
+            border-radius: 5px;
+            color: #f0f0f0;
+            font-size: 16px;
+            margin-bottom: 15px;
+        }
+        
+        input:focus {
+            outline: none;
+            border-color: #6a5acd;
+            box-shadow: 0 0 0 2px rgba(106, 90, 205, 0.3);
+        }
+        
+        .checkbox-group, .radio-group {
+            background-color: #2a2a35;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 15px;
+        }
+        
+        .checkbox-item, .radio-item {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .checkbox-item input, .radio-item input {
+            width: auto;
+            margin-right: 10px;
+            margin-bottom: 0;
+        }
+        
+        button[type="submit"] {
+            background-color: #eb7608;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            font-size: 16px;
+            font-weight: 500;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            width: 100%;
+            margin-top: 10px;
+        }
+        
+        button[type="submit"]:hover {
+            background-color: #c75019d3;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(106, 90, 205, 0.4);
+        }
+        
+        #listaJogadores {
+            list-style-type: none;
+            padding: 0;
+        }
+        
+        #listaJogadores li {
+            background-color: #2a2a35;
+            padding: 15px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            border-left: 4px solid #6a5acd;
+        }
+        
+        .highlight {
+            color: #6a5acd;
+            font-weight: 500;
+        }
+    </style>
 </head>
 <body>
-    <h1>Cadastro de Jogador</h1>
-    <form id="formJogador">
-        <label for="nome">Nome do Jogador</label>
-        <input type="text" id="nome" name="nome" required>
-        <br><br>
-        <label>Habilidades:</label>
-        <br>
-        <label><input type="checkbox" name="habilidades" value="Passe">Passe</label><br>
-        <label><input type="checkbox" name="habilidades" value="Drible">Drible</label><br>
-        <label><input type="checkbox" name="habilidades" value="Finalização">Finalização</label><br>
-        <label><input type="checkbox" name="habilidades" value="Defesa">Defesa</label><br>
-        <label><input type="checkbox" name="habilidades" value="Velocidade">Velocidade</label><br>
-        <br><br>
-        <label>Posição:</label><br>
-        <label><input type="radio" name="posicao" value="Centro Avante">Centro Avante</label><br>
-        <label><input type="radio" name="posicao" value="Ponta">Ponta</label><br>
-        <label><input type="radio" name="posicao" value="Meio Campo">Meio Campo</label><br>
-        <label><input type="radio" name="posicao" value="Zagueiro">Zagueiro</label><br>
-        <label><input type="radio" name="posicao" value="Goleiro">Goleiro</label><br>
-        <label><input type="radio" name="posicao" value="Lateral">Lateral</label><br>
-        <br><br>
-        <label for="estreia">Data de estreia na Seleção</label>
-        <input type="date" id="estreia" name="estreia" required><br><br>
-        <button type="submit">Cadastrar Jogador</button>
-    </form><br><br>
-    <h2>Jogadores Cadastrados</h2>
-    <ul id="listaJogadores"></ul>
-        <!-- Aqui mostraremos a lista de jogadores cadastrados -->
+    <div class="container">
+        <h1>Cadastro de Jogador</h1>
+        <form id="formJogador">
+            <div class="form-group">
+                <label for="nome">Nome do Jogador</label>
+                <input type="text" id="nome" name="nome" required placeholder="Digite o nome completo">
+            </div>
+            
+            <div class="form-group">
+                <label>Habilidades:</label>
+                <div class="checkbox-group">
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="passe" name="habilidades" value="Passe">
+                        <label for="passe">Passe</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="drible" name="habilidades" value="Drible">
+                        <label for="drible">Drible</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="finalizacao" name="habilidades" value="Finalização">
+                        <label for="finalizacao">Finalização</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="defesa" name="habilidades" value="Defesa">
+                        <label for="defesa">Defesa</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="velocidade" name="habilidades" value="Velocidade">
+                        <label for="velocidade">Velocidade</label>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label>Posição:</label>
+                <div class="radio-group">
+                    <div class="radio-item">
+                        <input type="radio" id="centro-avante" name="posicao" value="Centro Avante">
+                        <label for="centro-avante">Centro Avante</label>
+                    </div>
+                    <div class="radio-item">
+                        <input type="radio" id="ponta" name="posicao" value="Ponta">
+                        <label for="ponta">Ponta</label>
+                    </div>
+                    <div class="radio-item">
+                        <input type="radio" id="meio-campo" name="posicao" value="Meio Campo">
+                        <label for="meio-campo">Meio Campo</label>
+                    </div>
+                    <div class="radio-item">
+                        <input type="radio" id="zagueiro" name="posicao" value="Zagueiro">
+                        <label for="zagueiro">Zagueiro</label>
+                    </div>
+                    <div class="radio-item">
+                        <input type="radio" id="goleiro" name="posicao" value="Goleiro">
+                        <label for="goleiro">Goleiro</label>
+                    </div>
+                    <div class="radio-item">
+                        <input type="radio" id="lateral" name="posicao" value="Lateral">
+                        <label for="lateral">Lateral</label>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="estreia">Data de estreia na Seleção</label>
+                <input type="date" id="estreia" name="estreia" required>
+            </div>
+            
+            <button type="submit">Cadastrar Jogador</button>
+        </form>
+        
+        <h2>Jogadores Cadastrados</h2>
+        <ul id="listaJogadores"></ul>
+    </div>
+    
     <script src="formCadastroJogador.js"></script>
 </body>
 </html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Participantes</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'vermelho': '#d10000',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-white min-h-screen p-8 font-sans">
+    <div class="max-w-2xl mx-auto">
+        <!-- Cabeçalho -->
+        <h1 class="text-3xl font-light text-gray-900 mb-8 border-b border-vermelho pb-2">
+            Cadastro de Participantes
+        </h1>
+        
+        <!-- Formulário -->
+        <form id="formParticipante" class="space-y-6 mb-12">
+            <div>
+                <label for="nome" class="block text-sm font-medium text-gray-700 mb-1">Nome Completo</label>
+                <input type="text" id="nome" name="nome" required
+                    class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-vermelho focus:border-vermelho">
+            </div>
+            
+            <div>
+                <label for="idade" class="block text-sm font-medium text-gray-700 mb-1">Idade</label>
+                <input type="number" id="idade" name="idade" required
+                    class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-vermelho focus:border-vermelho">
+            </div>
+            
+            <div>
+                <p class="block text-sm font-medium text-gray-700 mb-2">Gênero</p>
+                <div class="flex flex-wrap gap-4">
+                    <label class="inline-flex items-center">
+                        <input type="radio" id="masculino" name="genero" value="masculino" required
+                            class="text-vermelho focus:ring-vermelho">
+                        <span class="ml-2 text-gray-700">Masculino</span>
+                    </label>
+                    <label class="inline-flex items-center">
+                        <input type="radio" id="feminino" name="genero" value="feminino" required
+                            class="text-vermelho focus:ring-vermelho">
+                        <span class="ml-2 text-gray-700">Feminino</span>
+                    </label>
+                    <label class="inline-flex items-center">
+                        <input type="radio" id="outro" name="genero" value="outro" required
+                            class="text-vermelho focus:ring-vermelho">
+                        <span class="ml-2 text-gray-700">Outro</span>
+                    </label>
+                </div>
+            </div>
+            
+            <div>
+                <label for="evento" class="block text-sm font-medium text-gray-700 mb-1">Evento</label>
+                <select id="evento" name="evento" required
+                    class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-vermelho focus:border-vermelho">
+                    <option value="">Selecione um Evento</option>
+                    <option value="Futebol de Salão">Futebol de Salão</option>
+                    <option value="Casamento">Casamento</option>
+                    <option value="Vôlei de Praia">Vôlei de Praia</option>
+                </select>
+            </div>
+            
+            <div>
+                <label class="inline-flex items-center">
+                    <input type="checkbox" id="regulamento" name="regulamento" required
+                        class="rounded text-vermelho focus:ring-vermelho">
+                    <span class="ml-2 text-gray-700">Sim, aceito o regulamento</span>
+                </label>
+            </div>
+            
+            <button type="submit"
+                class="w-full bg-vermelho text-white py-2 px-4 rounded-md hover:bg-opacity-90 transition-opacity focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-vermelho">
+                Cadastrar Participante
+            </button>
+        </form>
+        
+        <!-- Lista de Participantes -->
+        <div>
+            <h3 class="text-xl font-light text-gray-900 mb-4 border-b border-vermelho pb-1">
+                Participantes Cadastrados
+            </h3>
+            <ul id="listaParticipantes" class="divide-y divide-gray-200">
+                <!-- Itens serão adicionados dinamicamente aqui -->
+            </ul>
+        </div>
+    </div>
+    
+    <script src="cadastroParticipantes.js"></script>
+</body>
+</html>

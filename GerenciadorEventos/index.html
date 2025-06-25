@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Eventos e Participantes</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'ocean-blue': '#006994',
+                        'deep-black': '#0a0a0a',
+                    },
+                    boxShadow: {
+                        'futuristic': '0 0 15px rgba(0, 105, 148, 0.5)',
+                        'futuristic-lg': '0 0 25px rgba(0, 105, 148, 0.7)',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-deep-black min-h-screen flex flex-col items-center justify-center p-4">
+    <div class="bg-gradient-to-br from-gray-900 to-black border-2 border-ocean-blue rounded-xl p-8 max-w-md w-full shadow-futuristic-lg">
+        <!-- Efeito de brilho futurista -->
+        <div class="absolute -inset-0.5 bg-ocean-blue rounded-xl blur opacity-75 group-hover:opacity-100 transition"></div>
+        
+        <h1 class="text-3xl font-bold text-center mb-8 text-transparent bg-clip-text bg-gradient-to-r from-ocean-blue to-cyan-300">
+            <span class="text-white">Cadastro de</span> Eventos e Participantes
+        </h1>
+        
+        <!-- Menu de navegação futurista -->
+        <nav class="flex flex-col gap-4">
+            <a href="cadastroEventos.html" 
+               class="relative group bg-black border-2 border-ocean-blue text-white p-4 rounded-lg hover:shadow-futuristic transition-all duration-300 text-center font-medium tracking-wide transform hover:-translate-y-1">
+               <span class="relative z-10">Cadastro de Eventos</span>
+               <div class="absolute inset-0 bg-gradient-to-r from-ocean-blue/30 to-transparent opacity-0 group-hover:opacity-100 rounded-lg transition-opacity"></div>
+            </a>
+            
+            <a href="cadastroParticipantes.html" 
+               class="relative group bg-black border-2 border-ocean-blue text-white p-4 rounded-lg hover:shadow-futuristic transition-all duration-300 text-center font-medium tracking-wide transform hover:-translate-y-1">
+               <span class="relative z-10">Cadastro de Participantes</span>
+               <div class="absolute inset-0 bg-gradient-to-r from-ocean-blue/30 to-transparent opacity-0 group-hover:opacity-100 rounded-lg transition-opacity"></div>
+            </a>
+        </nav>
+        
+        <!-- Efeito de detalhe futurista -->
+        <div class="mt-8 flex justify-center">
+            <div class="h-1 w-20 bg-gradient-to-r from-ocean-blue to-cyan-400 rounded-full"></div>
+        </div>
+    </div>
+</body>
+</html>
